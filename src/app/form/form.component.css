@@ -1,0 +1,16 @@
+.bg-img{
+    background-image: url('../../assets/CTB Home.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 1440px) {
+    .bg-img {
+        background-image: none;
+    }
+}
+
+.req-field {
+    color: #FF0000;
+    font-weight: bold;
+}

@@ -1,0 +1,32 @@
+nav {
+    box-shadow: 0px 3px 10px;
+}
+
+@media (min-width: 768px) {
+    #CTB {
+        height: 80px;
+    }
+    
+    #Plus {
+        height: 30px;
+    }
+    
+    #Holiday {
+        height: 62px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    #CTB-Small {
+        height: 12vw;
+    }
+    
+    #Plus {
+        height: 4vw;
+    }
+    
+    #Holiday {
+        height: 8vw;
+    }
+}

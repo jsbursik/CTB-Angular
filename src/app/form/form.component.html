@@ -1,0 +1,276 @@
+<div class="container-fluid bg-dark bg-img">
+  <div class="container bg-light">
+
+    <div class="row mx-auto pt-3 mb-0 mb-sm-5">
+      <div class="display-4 text-center mb-3 mb-sm-5">Easy as 1,2,3!</div>
+      <div class="col-md mb-3 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img src="../../assets/OneBadge.png" alt="Step 1" class="img-fluid">
+          </div>
+          <div class="col-8 my-auto">
+            <h3 class="d-none d-lg-block">Submit this form</h3>
+            <h4 class="d-block d-lg-none text-center">Submit this form</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md mb-3 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img src="../../assets/TwoBadge.png" alt="Step 2" class="img-fluid">
+          </div>
+          <div class="col-8 my-auto">
+            <h3 class="d-none d-lg-block">Receive a quote</h3>
+            <h4 class="d-block d-lg-none text-center">Receive a quote</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md mb-3 mb-md-0">
+        <div class="row">
+          <div class="col-4">
+            <img src="../../assets/ThreeBadge.png" alt="Step 3" class="img-fluid">
+          </div>
+          <div class="col-8 my-auto">
+            <h3 class="d-none d-lg-block">We buy your car!</h3>
+            <h4 class="d-block d-lg-none text-center">We buy your car!</h4>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="pb-3">
+      <div class="row">
+        <div class="col-lg">
+          <div class="display-6 text-center mb-5">Your info</div>
+
+          <div class="row mx-2 mb-md-3">
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="firstName" class="form-label">First Name
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="text" 
+                class="form-control"
+                formControlName="firstName"
+                [ngClass]="{'is-invalid' : form.controls['firstName']?.touched && !form.controls['firstName'].valid }" 
+                id="firstName" 
+                placeholder="First Name"
+                required>
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="lastName" class="form-label">Last Name
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="text" 
+                class="form-control" 
+                [ngClass]="{'is-invalid' : form.controls['lastName']?.touched && !form.controls['lastName'].valid }" 
+                id="lastName" 
+                placeholder="Last Name" 
+                formControlName="lastName"
+                required>
+            </div>
+
+          </div>
+
+          <div class="row mx-2 mb-md-3">
+
+            <div class="col-md-7 mb-3 mb-md-0">
+              <label for="userEmail" class="form-label">Email
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="email" 
+                class="form-control"
+                [ngClass]="{'is-invalid' : form.controls['email']?.touched && !form.controls['email'].valid }"
+                id="userEmail" 
+                placeholder="email@example.com" 
+                formControlName="email"
+                required>
+            </div>
+
+            <div class="col-md-5 mb-3 mb-md-0">
+              <label for="phoneNum" class="form-label">Phone Number
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="tel" 
+                class="form-control"
+                [ngClass]="{'is-invalid' : form.controls['phone']?.touched && !form.controls['phone'].valid }"
+                id="phoneNum" 
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                placeholder="000-000-0000" 
+                [inputMask]="phoneInputMask" 
+                formControlName="phone"
+                required>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg">
+          <div class="display-6 text-center mb-5">Vehicle Info</div>
+
+          <div class="row mx-2 mb-md-3">
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="vehMake" class="form-label">Vehicle Make
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="text" 
+                class="form-control"
+                [ngClass]="{'is-invalid' : form.controls['make']?.touched && !form.controls['make'].valid }"
+                id="vehMake" 
+                placeholder="ex. Ford, Chevy, Jeep..." 
+                formControlName="make"
+                required>
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="vehModel" class="form-label">Vehicle Model
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="text" 
+                class="form-control"
+                [ngClass]="{'is-invalid' : form.controls['model']?.touched && !form.controls['model'].valid }"
+                id="vehModel" 
+                placeholder="ex. F-150, 1500, Civic..." 
+                formControlName="model"
+                required>
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="vehYear" class="form-label">Vehicle Year
+                <span class="req-field">*</span>
+              </label>
+              <select 
+                id="vehYear" 
+                class="form-select" 
+                formControlName="year"
+                placeholder="Year"
+                required>
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="row mx-2 mb-md-3">
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="vehMiles" class="form-label">Vehicle Miles
+                <span class="req-field">*</span>
+              </label>
+              <input 
+                type="text" 
+                inputmode="numeric" 
+                class="form-control"
+                [ngClass]="{'is-invalid' : form.controls['miles']?.touched && !form.controls['miles'].valid }"
+                id="vehMiles" 
+                placeholder="12,345" 
+                [inputMask]="mileInputMask" 
+                formControlName="miles"
+                required>
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+              <label for="vehCondition" class="form-label">Vehicle Condition
+                <span class="req-field">*</span>
+              </label>
+              <select 
+                id="vehCondition" 
+                class="form-select" 
+                formControlName="condition"
+                required>
+
+                <option value="Poor">Poor</option>
+                <option value="Fair">Fair</option>
+                <option value="Good">Good</option>
+                <option value="Excellent">Excellent</option>
+              </select>
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="form-text text-center">All fields with a "<span class="req-field">*</span>" are required.</p>
+
+      </div>
+
+      <div class="row mt-0 mt-md-5">
+
+        <div class="col-lg">
+
+          <div class="pt-2 mb-0 display-6 text-center">Not required, nice to have</div>
+          <p class="fw-light text-center">If you can't provide this information, that's okay!</p>
+
+          <div class="row mx-2 mb-md-3">
+
+            <div class="col-md mb-3 mb-md-0">
+
+              <label for="vehPhotos" class="form-label">Vehicle Photos</label>
+              <input 
+                type="file"
+                accept="image/*"
+                name="vehPhotos" 
+                id="vehPhotos" 
+                class="form-control invalid-file"
+                multiple
+                formControlName="photos"
+                (change)="uploadFiles($event)"
+                [ngClass]="{'is-invalid': form.controls['photos'].touched && !form.controls['photos'].valid }">
+
+              <p class="form-text mb-0">If you happen to have recent photos of the vehicle, we'd like to see them!</p>
+
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+
+              <label for="vehVIN" class="form-label">VIN</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                placeholder="SAJJFALG3BJ785900" 
+                formControlName="vin">
+
+              <p class="form-text mb-0">It's okay if you don't have it on hand.</p>
+            </div>
+
+            <div class="col-md mb-3 mb-md-0">
+
+              <label for="vehComments" class="form-label">Comments</label>
+              <textarea 
+                id="vehComments" 
+                class="form-control"
+                placeholder="Any details you think we should know about the vehicle can go here." 
+                formControlName="comments">
+              </textarea>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      
+      <button 
+        type="submit" 
+        class="btn btn-danger btn-lg w-100 mt-5 mb-3"
+        [disabled]="!form.valid">Submit</button>
+      
+      
+    </form>
+
+    <p id="output"></p>
+
+  </div>
+</div>
