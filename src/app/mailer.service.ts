@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class MailerService {
   
-  host: string = "cartruckbuyer"
+  host: string = "cartruckbuyer.com"
 
   url: string = `https://${this.host}:3000/send`
 
