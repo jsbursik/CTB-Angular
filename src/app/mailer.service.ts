@@ -6,9 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class MailerService {
   
-  host: string = "localhost"
+  host: string = "cartruckbuyer"
 
-  url: string = `http://${this.host}:3000/send`
+  url: string = `https://${this.host}:3000/send`
 
   constructor(private http: HttpClient) { }
 
