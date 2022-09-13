@@ -1,12 +1,12 @@
 .bg-img{
-    background-image: url('../../assets/CTB Home.png');
+    background-image: url('../../assets/CTB-Home.jpg');
     background-size: 100% auto;
     background-repeat: no-repeat;
 }
 
 @media (max-width: 1440px) {
     .bg-img {
-        background-image: url('../../assets/CTB Vertical.png');
+        background-image: url('../../assets/CTB-Vertical.jpg');
         background-size: 100% auto;
     }
 }
